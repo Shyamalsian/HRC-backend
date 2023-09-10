@@ -1,0 +1,61 @@
+import com.highradius.model.Invoice;
+
+import com.highradius.implementation.InvoiceDaoImpl;
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
+import com.highradius.implementation.InvoiceDao;
+import com.highradius.implementation.InvoiceDaoImpl;
+
+public class UpdateServlet extends HttpServlet {
+    private InvoiceDaoImpl invoiceDao;
+
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        // Initialize the InvoiceDaoImpl instance
+        invoiceDao = new InvoiceDaoImpl();
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Get the parameters from the request
+        int invoiceId = Integer.parseInt(request.getParameter("invoiceId"));
+        int customerOrderId = Integer.parseInt(request.getParameter("customerOrderId"));
+        int salesOrg = Integer.parseInt(request.getParameter("salesOrg"));
+        String distributionChannel = request.getParameter("distributionChannel");
+        int customerNumber = Integer.parseInt(request.getParameter("customerNumber"));
+        int companyCode = Integer.parseInt(request.getParameter("companyCode"));
+        double orderAmount = Double.parseDouble(request.getParameter("orderAmount"));
+        String orderCurrency = request.getParameter("orderCurrency");
+        double amountInUSD = Double.parseDouble(request.getParameter("amountInUSD"));
+        String orderCreation = request.getParameter("orderCreation");
+
+        // Create an Invoice object with the updated values
+        Invoice updatedInvoice = new Invoice(customerOrderId, salesOrg, distributionChannel,customerNumber, 
+        		companyCode, orderAmount,orderCurrency, amountInUSD, orderCreation);
+        updatedInvoice.setCustomerOrderId(customerOrderId);
+        updatedInvoice.setSalesOrg(salesOrg);
+        updatedInvoice.setDistributionChannel(distributionChannel);
+        updatedInvoice.setCustomerNumber(customerNumber);
+        updatedInvoice.setCompanyCode(companyCode);
+        updatedInvoice.setOrderAmount(orderAmount);
+        updatedInvoice.setOrderCurrency(orderCurrency);
+        updatedInvoice.setAmountInUSD(amountInUSD);
+        updatedInvoice.setOrderCreation(orderCreation);
+
+        // Update the invoice in the database
+        invoiceDao.updateInvoice(invoiceId, updatedInvoice);
+
+        // Set the response content type
+        response.setContentType("text/plain");
+        PrintWriter out = response.getWriter();
+        out.print("Invoice updated successfully");
+        out.flush();
+    }
+}

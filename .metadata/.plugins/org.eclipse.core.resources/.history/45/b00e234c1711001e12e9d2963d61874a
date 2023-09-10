@@ -1,0 +1,37 @@
+package com.highradius.servlets;
+import com.google.gson.Gson;
+import com.highradius.model.Invoice;
+import com.highradius.implementation.InvoiceDao;
+import com.highradius.implementation.InvoiceDaoImpl;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+public class AddServlet extends HttpServlet {
+    private InvoiceDao invoiceDao;
+
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        invoiceDao = new InvoiceDaoImpl();
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Read the request body
+        String requestBody = request.getReader().lines()
+                .reduce("", (accumulator, actual) -> accumulator + actual);
+
+        // Parse the request body as JSON using Gson
+        Gson gson = new Gson();
+        Invoice invoice = gson.fromJson(requestBody, Invoice.class);
+
+        // Add the invoice to the database
+        invoiceDao.insertInvoice(invoice);
+
+        response.getWriter().println("Invoice added successfully!");
+    }
+}

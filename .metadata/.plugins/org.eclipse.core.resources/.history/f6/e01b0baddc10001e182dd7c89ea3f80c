@@ -1,0 +1,90 @@
+package com.highradius.model;
+
+public class Invoice {
+
+    private int customerId;
+    private String salesOrg;
+    private String distributionChannel;
+    private String companyCode;
+    private String orderCurrency;
+//    private double amountInUSD;
+   private String orderCreation;
+    
+
+    public Invoice(int customerId, String salesOrg, String distributionChannel, String companyCode, String orderCurrency, String orderCreation) {
+        this.customerId = customerId;
+        this.salesOrg = salesOrg;
+        this.distributionChannel = distributionChannel;
+        this.companyCode = companyCode;
+        this.orderCurrency = orderCurrency;
+//        this.amountInUSD = amountInUSD;
+      
+        
+    }
+
+    // Getters and Setters
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
+    public String getSalesOrg() {
+        return salesOrg;
+    }
+
+    public void setSalesOrg(String salesOrg) {
+        this.salesOrg = salesOrg;
+    }
+
+    public String getDistributionChannel() {
+        return distributionChannel;
+    }
+
+    public void setDistributionChannel(String distributionChannel) {
+        this.distributionChannel = distributionChannel;
+    }
+
+    public String getCompanyCode() {
+        return companyCode;
+    }
+
+    public void setCompanyCode(String companyCode) {
+        this.companyCode = companyCode;
+    }
+
+    public String getOrderCurrency() {
+        return orderCurrency;
+    }
+
+    public void setOrderCurrency(String orderCurrency) {
+        this.orderCurrency = orderCurrency;
+    }
+
+//    public double getAmountInUSD() {
+//        return amountInUSD;
+//    }
+
+//    public void setAmountInUSD(double amountInUSD) {
+//        this.amountInUSD = amountInUSD;
+//    }
+
+    public String getOrderCreation() {
+        return orderCreation;
+    }
+
+    public void setOrderCreation(String orderCreation) {
+        this.orderCreation = orderCreation;
+    }
+
+    
+    
+
+    public static void main(String[] args) {
+        // Creating an example invoice object
+       
+}
+}

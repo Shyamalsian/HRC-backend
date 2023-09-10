@@ -1,0 +1,5 @@
+package com.highradius.model;
+
+public class Invoice {
+
+}

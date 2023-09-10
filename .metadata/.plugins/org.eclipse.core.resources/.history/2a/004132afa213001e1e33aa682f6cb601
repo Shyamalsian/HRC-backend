@@ -1,0 +1,95 @@
+package com.highradius.model;
+public class Invoice {
+    private int customerOrderId;
+    private int salesOrg;
+    private String distributionChannel;
+    private int customerNumber;
+    private int companyCode;
+    private double orderAmount;
+    private String orderCurrency;
+    private double amountInUSD;
+    private String orderCreation;
+
+    public Invoice() {
+        this.customerOrderId = customerOrderId;
+        this.salesOrg = salesOrg;
+        this.distributionChannel = distributionChannel;
+        this.customerNumber = customerNumber;
+        this.companyCode = companyCode;
+        this.orderAmount = orderAmount;
+        this.orderCurrency = orderCurrency;
+        this.amountInUSD = amountInUSD;
+        this.orderCreation = orderCreation;
+    }
+
+    public int getCustomerOrderId() {
+        return customerOrderId;
+    }
+
+    public void setCustomerOrderId(int customerOrderId) {
+        this.customerOrderId = customerOrderId;
+    }
+
+    public int getSalesOrg() {
+        return salesOrg;
+    }
+
+    public void setSalesOrg(int salesOrg) {
+        this.salesOrg = salesOrg;
+    }
+
+    public String getDistributionChannel() {
+        return distributionChannel;
+    }
+
+    public void setDistributionChannel(String distributionChannel) {
+        this.distributionChannel = distributionChannel;
+    }
+
+    public int getCustomerNumber() {
+        return customerNumber;
+    }
+
+    public void setCustomerNumber(int customerNumber) {
+        this.customerNumber = customerNumber;
+    }
+
+    public int getCompanyCode() {
+        return companyCode;
+    }
+
+    public void setCompanyCode(int companyCode) {
+        this.companyCode = companyCode;
+    }
+
+    public double getOrderAmount() {
+        return orderAmount;
+    }
+
+    public void setOrderAmount(double orderAmount) {
+        this.orderAmount = orderAmount;
+    }
+
+    public String getOrderCurrency() {
+        return orderCurrency;
+    }
+
+    public void setOrderCurrency(String orderCurrency) {
+        this.orderCurrency = orderCurrency;
+    }
+
+    public double getAmountInUSD() {
+        return amountInUSD;
+    }
+
+    public void setAmountInUSD(double amountInUSD) {
+        this.amountInUSD = amountInUSD;
+    }
+
+    public String getOrderCreation() {
+        return orderCreation;
+    }
+
+    public void setOrderCreation(String orderCreation) {
+        this.orderCreation = orderCreation;
+    }}

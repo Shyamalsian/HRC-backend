@@ -1,0 +1,7 @@
+127.0.0.1 - - [21/Jun/2023:17:08:47 +0530] "GET / HTTP/1.1" 404 751
+127.0.0.1 - - [21/Jun/2023:17:08:50 +0530] "GET /Mile_Stone_3/ HTTP/1.1" 200 1179
+127.0.0.1 - - [21/Jun/2023:17:08:59 +0530] "GET /Mile_Stone_3/dataLoading HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jun/2023:17:09:16 +0530] "GET /Mile_Stone_3/dataLoading HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jun/2023:17:13:24 +0530] "GET /Mile_Stone_3/dataLoading HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jun/2023:17:13:29 +0530] "GET /Mile_Stone_3/dataLoading HTTP/1.1" 200 3608
+127.0.0.1 - - [21/Jun/2023:17:43:50 +0530] "GET /Mile_Stone_3/dataLoading HTTP/1.1" 200 3608

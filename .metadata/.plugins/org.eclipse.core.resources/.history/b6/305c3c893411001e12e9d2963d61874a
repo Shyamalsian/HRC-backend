@@ -1,0 +1,227 @@
+//package com.highradius.servlets;
+//import com.google.gson.Gson;
+//import com.highradius.model.Invoice;
+//import com.highradius.implementation.InvoiceDao;
+//import com.highradius.implementation.InvoiceDaoImpl;
+//
+//import javax.servlet.ServletException;
+//import javax.servlet.http.HttpServlet;
+//import javax.servlet.http.HttpServletRequest;
+//import javax.servlet.http.HttpServletResponse;
+//import java.io.IOException;
+//
+//import java.io.IOException;
+//import javax.servlet.ServletException;
+//import javax.servlet.annotation.WebServlet;
+//import javax.servlet.http.HttpServlet;
+//import javax.servlet.http.HttpServletRequest;
+//import javax.servlet.http.HttpServletResponse;
+//
+///**
+// * Servlet implementation class DeleteServlet
+// */
+//@WebServlet("/DeleteServlet")
+//public class DeleteServlet extends HttpServlet {
+//	private static final long serialVersionUID = 1L;
+//       
+//    /**
+//     * @see HttpServlet#HttpServlet()
+//     */
+//    public DeleteServlet() {
+//        super();
+//        // TODO Auto-generated constructor stub
+//    }
+//
+//	/**
+//	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
+//	 */
+//	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		String idParam = request.getParameter("id");
+//
+//	    // Parse the ID parameter to an integer
+//	    int id;
+//	    try {
+//	        id = Integer.parseInt(idParam);
+//	    } catch (NumberFormatException e) {
+//	        // Handle invalid ID parameter
+//	        response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+//	        response.getWriter().println("Invalid ID parameter");
+//	        return;
+//	    }
+//
+//	    // Create an instance of your InvoiceDao implementation
+//	    InvoiceDao invoiceDao = new InvoiceDaoImpl();
+//
+//	    // Delete the invoice with the specified ID
+//	    invoiceDao.deleteInvoice(id);
+//
+//	    // Create a Gson instance
+//	    Gson gson = new Gson();
+//
+//	    // Convert a response object to JSON
+//	    String jsonResponse = gson.toJson("Invoice deleted successfully");
+//
+//	    // Set the response content type
+//	    response.setContentType("application/json");
+//
+//	    // Set the response status and write the JSON response
+//	    response.setStatus(HttpServletResponse.SC_OK);
+//	    response.getWriter().println(jsonResponse);
+//		
+//		// TODO Auto-generated method stub
+//	}
+//	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+//            throws ServletException, IOException {
+//		response.getWriter().println("delete!");
+//	}
+//	
+//
+//}
+
+//
+//package com.highradius.servlets;
+//
+//import com.google.gson.Gson;
+//import com.highradius.implementation.InvoiceDao;
+//import com.highradius.implementation.InvoiceDaoImpl;
+//
+//import javax.servlet.ServletException;
+//import javax.servlet.http.HttpServlet;
+//import javax.servlet.http.HttpServletRequest;
+//import javax.servlet.http.HttpServletResponse;
+//import java.io.IOException;
+//import java.util.Arrays;
+//import java.util.List;
+//import java.util.stream.Collectors;
+//
+//public class DeleteServlet extends HttpServlet {
+//
+//    private InvoiceDao invoiceDao;
+//    private Gson gson;
+//
+//    public void init() {
+//        // Initialize the InvoiceDao
+//        invoiceDao = new InvoiceDaoImpl();
+//        // Initialize Gson
+//        gson = new Gson();
+//    }
+//
+//    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        // Get the serial numbers of the rows to delete
+//        String[] serialNumbers = request.getParameterValues("serialNumbers");
+//
+//        // Perform the deletion based on the serial numbers
+//        for (String serialNumber : serialNumbers) {
+//            invoiceDao.deleteInvoiceBySerialNumber(serialNumber);
+//        }
+//
+//        // Create a response object
+//        DeleteResponse deleteResponse = new DeleteResponse("success");
+//
+//        // Convert the response object to JSON
+//        String jsonResponse = gson.toJson(deleteResponse);
+//
+//        // Set the response content type to application/json
+//        response.setContentType("application/json");
+//        // Write the JSON response to the output stream
+//        response.getWriter().write(jsonResponse);
+//    }
+//
+//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        doPost(request, response);
+//    }
+//
+//    // Response class for Gson serialization
+//    private static class DeleteResponse {
+//        private String status;
+//
+//        public DeleteResponse(String status) {
+//            this.status = status;
+//        }
+//
+//        public String getStatus() {
+//            return status;
+//        }
+//    }
+//}
+
+
+package com.highradius.servlets;
+import com.google.gson.Gson;
+import com.highradius.model.Invoice;
+import com.highradius.implementation.InvoiceDao;
+import com.highradius.implementation.InvoiceDaoImpl;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class DeleteServlet
+ */
+@WebServlet("/DeleteServlet")
+public class DeleteServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public DeleteServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
+	 */
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String idParam = request.getParameter("sl_no");
+
+	    // Parse the ID parameter to an integer
+	    int sl_no;
+	    try {
+	        sl_no = Integer.parseInt(idParam);
+	    } catch (NumberFormatException e) {
+	        // Handle invalid ID parameter
+	        response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+	        response.getWriter().println("Invalid ID parameter");
+	        return;
+	    }
+
+	    // Create an instance of your InvoiceDao implementation
+	    InvoiceDao invoiceDao = new InvoiceDaoImpl();
+
+	    // Delete the invoice with the specified ID
+	    invoiceDao.deleteInvoice(sl_no);
+
+	    // Create a Gson instance
+	    Gson gson = new Gson();
+
+	    // Convert a response object to JSON
+	    String jsonResponse = gson.toJson("Invoice deleted successfully");
+
+	    // Set the response content type
+	    response.setContentType("application/json");
+
+	    // Set the response status and write the JSON response
+	    response.setStatus(HttpServletResponse.SC_OK);
+	    response.getWriter().println(jsonResponse);
+		
+		// TODO Auto-generated method stub
+	}
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+		response.getWriter().println("delete!");
+	}
+	
+
+}

@@ -1,0 +1,48 @@
+//package com.highradius.servlets;
+//import com.highradius.model.Invoice;
+//import com.highradius.implementation.InvoiceDao;
+//import com.highradius.implementation.InvoiceDaoImpl;
+//
+//import javax.servlet.ServletException;
+//import javax.servlet.http.HttpServlet;
+//import javax.servlet.http.HttpServletRequest;
+//import javax.servlet.http.HttpServletResponse;
+//import java.io.IOException;
+//
+//public class AddServlet extends HttpServlet {
+//    private InvoiceDao invoiceDao;
+//
+//    @Override
+//    public void init() throws ServletException {
+//        super.init();
+//        invoiceDao = new InvoiceDaoImpl();
+//    }
+//
+//    @Override
+//    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        // Retrieve the customer details from the request parameters
+//        int customerOrderId = Integer.parseInt(request.getParameter("customerOrderId"));
+//        String salesOrg = request.getParameter("salesOrg");
+//        String distributionChannel = request.getParameter("distributionChannel");
+////        String customerNumber = request.getParameter("customerNumber");
+//        String companyCode = request.getParameter("companyCode");
+//        String orderCurrency = request.getParameter("orderCurrency");
+////        double amountInUSD = Double.parseDouble(request.getParameter("amountInUSD"));
+//        String orderCreation=request.getParameter("odercreation");
+//        
+//
+//        // Create an Invoice object with the retrieved details
+//        Invoice invoice = new Invoice(customerOrderId, salesOrg, distributionChannel,
+//                companyCode,orderCurrency, orderCreation);
+//
+//        // Add the invoice to the database
+//        invoiceDao.insertInvoice(invoice);
+//        response.getWriter().println("Invoice added successfully!");
+//       
+//        // Write a response message
+//        
+//    }
+//    
+//    
+//    
+//}
